@@ -10,17 +10,14 @@ struct complex_t {
 };
 
 istream & read(istream & stream, complex_t & complex) {
-	char a, b, c;
 	float x, y;
-	
+	char a, b, c;
 
 	if (stream >> a && a == '(' && stream >> x && stream >> b && b == ',' && stream >> y && stream >> c && c == ')') {
 		complex.real = x;
 		complex.imag = y;
 	}
-	else {
-		stream.setstate(std::ios::failbit);
-	}
+	else stream.setstate(std::ios::failbit);
 
 	return stream;
 }
